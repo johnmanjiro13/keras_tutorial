@@ -1,5 +1,7 @@
 ﻿from keras.datasets import mnist
 from keras.utils.np_utils import to_categorical
+from keras.models import Sequential
+from keras.layers import Dense
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
@@ -14,3 +16,11 @@ x_test = x_test.astype('float32') / 255
 # 正解ラベルをone-hot-encoding
 y_train = to_categorical(y_train, 10)
 y_test = to_categorical(y_test, 10)
+
+model = Sequential()
+model.add(Dense(64, activation='relu', input_dim=784))
+model.add(Dense(10, activation='softmax'))
+
+model.compile(optimizer='rmsprop',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
