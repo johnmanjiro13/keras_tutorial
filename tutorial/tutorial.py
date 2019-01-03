@@ -29,3 +29,7 @@ model.fit(x_train, y_train,
           batch_size=100,
           epochs=12,
           verbose=1)
+
+score = model.evaluate(x_test, y_test)
+print(score[0])
+print(score[1])
