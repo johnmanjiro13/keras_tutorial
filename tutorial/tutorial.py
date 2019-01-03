@@ -24,3 +24,8 @@ model.add(Dense(10, activation='softmax'))
 model.compile(optimizer='rmsprop',
               loss='categorical_crossentropy',
               metrics=['accuracy'])
+
+model.fit(x_train, y_train,
+          batch_size=100,
+          epochs=12,
+          verbose=1)
